@@ -606,6 +606,25 @@ wheels = [
 ]
 
 [[package]]
+name = "env-isaaclab"
+version = "0.1.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "isaaclab", extra = ["all", "isaacsim"] },
+    { name = "rl-games" },
+    { name = "torch" },
+    { name = "torchvision" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "isaaclab", extras = ["all", "isaacsim"], specifier = "==2.2.0", index = "https://pypi.nvidia.com/" },
+    { name = "rl-games", git = "https://github.com/isaac-sim/rl_games.git?rev=python3.11" },
+    { name = "torch", specifier = "==2.7.0", index = "https://download.pytorch.org/whl/cu126" },
+    { name = "torchvision", specifier = "==0.22.0", index = "https://download.pytorch.org/whl/cu126" },
+]
+
+[[package]]
 name = "farama-notifications"
 version = "0.0.4"
 source = { registry = "https://pypi.org/simple" }
@@ -1098,25 +1117,6 @@ all = [
 ]
 isaacsim = [
     { name = "isaacsim", extra = ["all", "extscache"] },
-]
-
-[[package]]
-name = "isaaclab2"
-version = "0.1.0"
-source = { virtual = "." }
-dependencies = [
-    { name = "isaaclab", extra = ["all", "isaacsim"] },
-    { name = "rl-games" },
-    { name = "torch" },
-    { name = "torchvision" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "isaaclab", extras = ["isaacsim", "all"], index = "https://pypi.nvidia.com/" },
-    { name = "rl-games", git = "https://github.com/isaac-sim/rl_games.git?rev=python3.11" },
-    { name = "torch", index = "https://download.pytorch.org/whl/cu126" },
-    { name = "torchvision", index = "https://download.pytorch.org/whl/cu126" },
 ]
 
 [[package]]

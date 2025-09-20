@@ -1,14 +1,14 @@
 [project]
 name = "env-isaaclab"
-version = "0.1.0"
+version = "0.1.1"
 description = "A uv-managed Python environment for NVIDIA IsaacLab experiments."
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "torch",
-    "torchvision",
-    "isaaclab[isaacsim,all]",
-    "rl-games",
+    "torch==2.7.0",
+    "torchvision==0.22.0",
+    "rl_games==1.6.1",
+    "isaaclab[all,isaacsim]==2.2.0",
 ]
 
 [tool.uv.sources]
@@ -26,3 +26,6 @@ explicit = true
 name = "pypi-nvidia"
 url = "https://pypi.nvidia.com"
 explicit = true
+
+[tool.ruff]
+ignore = ["E402"]
