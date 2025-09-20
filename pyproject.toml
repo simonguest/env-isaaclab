@@ -1,7 +1,7 @@
 [project]
-name = "isaaclab2"
+name = "env-isaaclab"
 version = "0.1.0"
-description = "Add your description here"
+description = "A uv-managed Python environment for NVIDIA IsaacLab experiments."
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [

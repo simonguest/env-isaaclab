@@ -1,4 +1,4 @@
-# env_isaaclab
+# env-isaaclab
 
 A uv-managed Python environment for NVIDIA IsaacLab experiments. The project ships with pinned dependencies, custom package indexes, and a minimal CUDA test script so you can bootstrap IsaacLab + Isaac Sim quickly on a fresh machine.
 
