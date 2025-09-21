@@ -15,6 +15,14 @@
             "args" : [],
             "program": "${workspaceFolder}/scripts/create_empty.py",
             "console": "integratedTerminal"
+        },
+        {
+            "name": "Python: Rigid Object",
+            "type": "debugpy",
+            "request": "launch",
+            "args" : [],
+            "program": "${workspaceFolder}/scripts/run_rigid_object.py",
+            "console": "integratedTerminal"
         }
     ]
   }
