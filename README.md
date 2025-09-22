@@ -26,6 +26,19 @@ A uv-managed Python environment for NVIDIA IsaacLab experiments. The project shi
    ```
    If this raises a `RuntimeError`, check that the correct GPU driver and CUDA toolkit are installed.
 
+## Configuring Pylance in VS Code
+
+By default, Intellisense in VS Code will not work for the isaaclab and issacsim packages. To fix, first run the 'generate-vscode-settings' command in IsaacSim:
+
+```powershell
+python -m isaacsim --generate-vscode-settings
+```
+
+This will insert mock  files into the Isaac Sim package extensions (.venv\Lib\site-packages\isaacsim\exts). Unfortunately, it generates an incomplete .vscode\settings.json (and one that is incompatible with Windows.) To fix, overwrite the generated settings.json with a working version:
+```powershell
+cp .\.vscode\settings-working.json .\.vscode\settings.json
+```
+
 ## Troubleshooting
 - **Package download failures:** Confirm you can reach the NVIDIA and PyTorch indexes listed in `pyproject.toml`. Corporate proxies may need additional configuration.
 - **Mismatched CUDA versions:** Ensure the PyTorch index (`pytorch-cu126`) aligns with your installed CUDA runtime. Adjust the index names and versions if you move to a newer Isaac Sim release.
