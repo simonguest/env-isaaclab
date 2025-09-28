@@ -1,6 +1,6 @@
 # env-isaaclab
 
-A uv-managed Python environment for NVIDIA IsaacLab experiments. The project ships with pinned dependencies, custom package indexes, and VS Code settings to make it easy to bootstrap IsaacLab + Isaac Sim quickly on a fresh machine.
+A uv-managed Python environment that makes it easier to run NVIDIA IsaacLab experiments on Windows. The project ships with pinned dependencies, custom package indexes, and VS Code settings to make it easy to bootstrap IsaacLab + Isaac Sim quickly on a fresh machine.
 
 ## Prerequisites
 - [`uv` CLI](https://github.com/astral-sh/uv) v0.4 or newer.
@@ -8,23 +8,23 @@ A uv-managed Python environment for NVIDIA IsaacLab experiments. The project shi
 
 ## Quick Start
 1. Create or update the virtual environment from the lockfile:
-   ```powershell
-   uv sync
-   ```
-2. Activate the virtual environment (PowerShell example):
-   ```powershell
-   .\.venv\Scripts\Activate
-   ```
+```powershell
+uv sync
+```
+2. Activate the virtual environment (PowerShell prompt):
+```powershell
+.\.venv\Scripts\Activate
+```
 3. Run IsaacSim!
-   ```powershell
-   isaacsim
-   ```
+```powershell
+isaacsim
+```
 
 ## Verifying CUDA availability:
-   ```powershell
-   uv run python test_cuda.py
-   ```
-   If this raises a `RuntimeError`, check that the correct GPU driver and CUDA toolkit are installed.
+```powershell
+uv run python test_cuda.py
+```
+If this raises a `RuntimeError`, check that the correct GPU driver and CUDA toolkit are installed.
 
 ## Configuring Pylance in VS Code
 
@@ -46,10 +46,18 @@ Then run the 'generate-vscode-settings' command in IsaacSim:
 python -m isaacsim --generate-vscode-settings
 ```
 
-This will insert mock  files into the Isaac Sim package extensions (.venv\Lib\site-packages\isaacsim\exts). Unfortunately, it generates an incomplete .vscode\settings.json (and one that is incompatible with Windows.) To fix, overwrite the generated settings.json with a working version:
+This will insert mock files into the Isaac Sim package extensions (.venv\Lib\site-packages\isaacsim\exts). Unfortunately, it generates an incomplete .vscode\settings.json (and one that is incompatible with Windows). To fix, overwrite the generated settings.json with a working version:
 ```powershell
 cp .\.vscode\settings-working.json .\.vscode\settings.json
 ```
+
+## Scripts
+
+The scripts (in the scripts folder) are a snapshot from [NVIDIA's IsaacLab repo](https://github.com/isaac-sim/IsaacLab) to test everything is working correctly. These scripts are not kept in sync with latest updates, however, so you should always use the IsaacLab repo as the source of truth. 
+
+## Running and Debugging Scripts
+
+`.vscode/launch.json` contains examples of how to list environments, create a new scene, and train/run the CartPole example. 
 
 ## Troubleshooting
 - **Package download failures:** Confirm you can reach the NVIDIA and PyTorch indexes listed in `pyproject.toml`. Corporate proxies may need additional configuration.

@@ -9,19 +9,35 @@
             "console": "integratedTerminal"
         },
         {
-            "name": "Python: Empty Scene",
+            "name": "List Environments",
             "type": "debugpy",
             "request": "launch",
             "args" : [],
-            "program": "${workspaceFolder}/scripts/create_empty.py",
+            "program": "${workspaceFolder}/scripts/environments/list_envs.py",
             "console": "integratedTerminal"
         },
         {
-            "name": "Python: Rigid Object",
+            "name": "Create Scene",
             "type": "debugpy",
             "request": "launch",
-            "args" : [],
-            "program": "${workspaceFolder}/scripts/run_rigid_object.py",
+            "args" : ["--num_envs", "32"],
+            "program": "${workspaceFolder}/scripts/tutorials/03_envs/run_cartpole_rl_env.py",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Train Cartpole",
+            "type": "debugpy",
+            "request": "launch",
+            "args" : ["--task", "Isaac-Cartpole-v0", "--num_envs", "64"],
+            "program": "${workspaceFolder}/scripts/reinforcement_learning/sb3/train.py",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Play Cartpole",
+            "type": "debugpy",
+            "request": "launch",
+            "args" : ["--task", "Isaac-Cartpole-v0", "--num_envs", "32", "--use_last_checkpoint"],
+            "program": "${workspaceFolder}/scripts/reinforcement_learning/sb3/play.py",
             "console": "integratedTerminal"
         }
     ]
